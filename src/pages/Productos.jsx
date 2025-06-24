@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import axios from 'axios'
 
-export const Productos = () => {
-  
+function Productos() {
   return (
-   <>
-
-   </> 
+    <div>Productos</div>
   )
 }
+
+export default Productos
