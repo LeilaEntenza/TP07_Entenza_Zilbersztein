@@ -1,10 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 
-function Productos() {
+export const Productos = () => {
   return (
     <div>Productos</div>
   )
 }
-
-export default Productos

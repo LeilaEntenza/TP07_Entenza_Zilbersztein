@@ -1,9 +1,7 @@
 import React from 'react'
 
-function Contacto() {
+export const Contacto = () => {
   return (
     <div>Contacto</div>
   )
 }
-
-export default Contacto
