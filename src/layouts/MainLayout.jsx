@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, Outlet } from 'react-router'
 
 export const MainLayout = () => {
   return (
@@ -46,6 +46,7 @@ export const MainLayout = () => {
         </header>
         <footer>
         </footer> 
+        <Outlet/>
     </>
   )
   }
