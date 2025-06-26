@@ -5,6 +5,9 @@ export const Productos = ({listado}) => {
   return (
     /*<ul>
       {listado.map((producto) => (<Card title={producto.title} description={producto.description} image={producto.image} />))}
-    </ul>*/<></>
+    </ul>*/ <></>
+  //probar cambiar de vista, al no usar UseEffect en todos los componentes estando en una misma vista puede fallar)
   )
 }
+
+//probar cambiar de vista, al no usar UseEffect en todos los componentes estando en una misma vista puede fallar)
