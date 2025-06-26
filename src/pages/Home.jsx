@@ -1,8 +1,8 @@
 import React from 'react'
-import axios from 'axios'
+import { Productos } from '../components/Productos'
 
-export const Home = () => {
+export const Home = ({lista}) => {
   return (
-    <div>Home</div>
+    <Productos listado={lista}/>
   )
 }
