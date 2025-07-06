@@ -1,7 +1,7 @@
     import React from 'react';
     import './QuienesSomos.css';
     
-    function QuienesSomos() {
+    export const QuienesSomos = () => {
       return (
         <>
             <div className='QuienesSomosInicio'>
@@ -26,4 +26,4 @@
       )
     }
     
-    export default QuienesSomos
+

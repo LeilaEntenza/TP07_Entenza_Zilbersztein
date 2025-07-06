@@ -17,9 +17,19 @@ export const MainLayout = () => {
                     <li className="nav-item">
                     <Link className="nav-link active" to="/home">Home</Link> 
                     </li>
-                    <li className="nav-item">
-                    <Link className="nav-link active" to="/productos">Productos</Link> 
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Productos 
+                    </a>
+                    <ul className="dropdown-menu">
+                        <li><Link className="dropdown-item" to="/productos">Ver todos</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/men's clothing">Men's clothing</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/women's clothing">Women's clothing</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/electronics">Electronics</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/jewelery">Jewelery</Link></li>
+                    </ul>
                     </li>
+
                     <li className="nav-item">
                     <Link className="nav-link active" to="/contacto">Contacto</Link> 
                     </li>

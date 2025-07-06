@@ -1,16 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router'
 
-const Card = ({title, description, image, price}) => {
+export const Tarjeta = ({title, description, image, key}) => {
   return (
-    <div className="card" style="width: 18rem;">
+    <div id={key} className="card" style={{width: '18rem'}}>
         <img src={image} className="card-img-top"/> 
         <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
-            <a href="#" className="btn btn-primary">Ver detalle</a>
+            <Link className="btn btn-primary" to="/productos/id">Ver detalle</Link>
         </div>
     </div> 
   )
 }
-
-export default Card

@@ -3,13 +3,13 @@ import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import {Home} from './pages/Home';
 import {Contacto} from './pages/Contacto';
+import {QuienesSomos} from './pages/QuienesSomos';
 import {Productos} from './components/Productos';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-//import {QuienesSomos} from './pages/QuienesSomos';
 
 function App() {
-  const[lista, setLista] = useState();
+  const[lista, setLista] = useState([]);
   useEffect(()=>{
     axios.get("https://fakestoreapi.com/products")
     .then(function (response) {
@@ -20,6 +20,9 @@ function App() {
       console.log(error);
     })
   }, [])
+  useEffect(()=>{
+   console.log(lista); 
+  }, [lista])
   return (
     <>
     <BrowserRouter>
@@ -27,8 +30,10 @@ function App() {
         <Route path="/" element={<MainLayout/>}>
           <Route path="/home" element={<Home lista={lista}/>}></Route>
           <Route path="/contacto" element={<Contacto/>}></Route>
-          {/*<Route path="/quienessomos" element={<QuienesSomos/>}></Route>*/}
-          <Route path="/productos" element={<Productos/>}></Route>
+          <Route path="/quienessomos" element={<QuienesSomos/>}></Route>
+          <Route path="/productos/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
         </Route> 
       </Routes> 
     </BrowserRouter>
