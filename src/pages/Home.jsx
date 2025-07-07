@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Productos } from '../components/Productos'
 import './Home.css'
+import axios from 'axios'
 
-export const Home = ({lista}) => {
+export const Home = () => {
+  const [producto, setProducto] = useState();
+  useEffect(() =>{
+    getProduct('https://fakestoreapi.com/products');
+  }, [])
+
+  const getProduct = (api) =>{
+    axios.get(api)
+    .then(function (response) {
+      const objeto = response.data;
+      setProducto(objeto.slip.advice)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+  
   return (    
     <>
     <div className="Inicio">
@@ -17,7 +34,12 @@ export const Home = ({lista}) => {
       <p>Retiro al día siguiente de tu compra</p>
     </div>
     </div> */}
-    <Productos listado={lista}/>
+    <div className='producto1'>
+      <h1>Nombre</h1>
+      <h2>Subtítulo</h2>
+      <button type="button" className="btn btn-custom">Más información</button>
+    </div>
+    
     </>
 
   )
