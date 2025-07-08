@@ -1,0 +1,13 @@
+.card-image-custom {
+    max-height: 250px;
+}
+
+.card-custom{
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
