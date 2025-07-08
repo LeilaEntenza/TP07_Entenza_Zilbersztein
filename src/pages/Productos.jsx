@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import {useParams} from "react-router-dom";
-import { Tarjeta } from './Tarjeta';
+import { Tarjeta } from '../components/Tarjeta';
 
 export const Productos = ({lista, setLista}) => {
   const { category} = useParams();
+  const {id} = useParams();
   console.log("categoria" + category);
   useEffect(()=>{
     const url = category? `https://fakestoreapi.com/products/category/` + category

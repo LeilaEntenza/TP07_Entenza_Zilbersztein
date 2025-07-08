@@ -4,27 +4,29 @@ import './Contacto.css'
 export const Contacto = () => {
   return (
     <>
-    <h1>Estamos para vos!</h1>
-    <div className='cards'>
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-          <a href="#" className="card-link">Card link</a>
-          <a href="#" className="card-link">Another link</a>
-        </div>
+        <form
+      action="https://formspree.io/f/{FORM_ID}"
+      className="fs-form"
+      target="_top"
+      method="POST"
+    >
+      <div className="fs-field">
+        <label className="fs-label" htmlFor="name">Nombre</label>
+        <input className="fs-input" id="name" name="name" />
       </div>
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-          <a href="#" className="card-link">Card link</a>
-          <a href="#" className="card-link">Another link</a>
-        </div>
+      <div className="fs-field">
+        <label className="fs-label" htmlFor="email">Email</label>
+        <input className="fs-input" id="email" name="email" required />
       </div>
-    </div>
+      <div className="fs-field">
+        <label className="fs-label" htmlFor="message">Mensaje</label>
+        <textarea className="fs-textarea" id="message" name="message"></textarea>
+        <p className="fs-description">Solemos responder en entre uno y dos días</p>
+      </div>
+      <div className="fs-button-group">
+        <button className="fs-button" type="submit">Enviar</button>
+      </div>
+    </form>
     </>
   )
 }
