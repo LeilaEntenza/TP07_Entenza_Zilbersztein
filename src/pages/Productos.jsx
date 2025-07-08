@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import {useParams} from "react-router-dom";
 import { Tarjeta } from '../components/Tarjeta';
+import './Productos.css'
 
 export const Productos = ({lista, setLista}) => {
   const { category} = useParams();
@@ -17,7 +18,10 @@ export const Productos = ({lista, setLista}) => {
   }, [category])
   return (
     <>
-    {lista.map((producto, index)=>(<Tarjeta key={index} title={producto.title} description={producto.description} image={producto.image}/>))}
+    <h1>Productos</h1>
+    <div className='productos'>
+      {lista.map((producto, index)=>(<Tarjeta key={index} title={producto.title} description={producto.description} image={producto.image}/>))}
+    </div>
     </>
   )
 }

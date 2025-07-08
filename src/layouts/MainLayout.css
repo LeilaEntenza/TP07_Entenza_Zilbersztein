@@ -14,9 +14,10 @@ ul{
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	width: 100%;
+	height: 250px;
 }
 .footer-col{
    width: 25%;

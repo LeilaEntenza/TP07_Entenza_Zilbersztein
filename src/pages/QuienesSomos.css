@@ -1,0 +1,24 @@
+p{
+    text-align: center;
+    font-size: larger;
+}
+
+.persona{
+    width: 100%;
+    padding: 3%;
+}
+
+.persona img{
+    width: 12%;
+    border-radius: 200px;
+}
+
+.a{
+    background-color: rgb(211, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+    border-radius: 15px;
+}

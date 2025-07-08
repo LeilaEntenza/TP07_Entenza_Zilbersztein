@@ -4,6 +4,7 @@ import './Contacto.css'
 export const Contacto = () => {
   return (
     <>
+    <div className='contactar'>
         <form
       action="https://formspree.io/f/{FORM_ID}"
       className="fs-form"
@@ -27,6 +28,7 @@ export const Contacto = () => {
         <button className="fs-button" type="submit">Enviar</button>
       </div>
     </form>
+    </div>
     </>
   )
 }

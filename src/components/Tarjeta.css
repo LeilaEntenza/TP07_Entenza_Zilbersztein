@@ -1,13 +1,38 @@
 .card-image-custom {
-    max-height: 250px;
+    height: 250px;
 }
 
 .card-custom{
+    height: 450px
 }
 
 .line-clamp {
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .line-clamp2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-body-custom{
+    padding: 3%;
+  }
+
+  .btn-custom1 {
+    background-color: rgb(83, 83, 182);
+    color: white;
+  }
+  .btn-custom1:hover {
+    transition: 1s;
+    background-color: rgb(0, 0, 99);    
+    color: white;
+  }
+  .card p{
+    text-align: left;
   }

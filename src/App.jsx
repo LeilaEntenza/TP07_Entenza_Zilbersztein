@@ -4,7 +4,7 @@ import { MainLayout } from './layouts/MainLayout';
 import {Home} from './pages/Home';
 import {Contacto} from './pages/Contacto';
 import {QuienesSomos} from './pages/QuienesSomos';
-import {Productos} from './components/Productos';
+import {Productos} from './pages/Productos';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 

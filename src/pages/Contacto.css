@@ -387,3 +387,7 @@ fieldset {
   text-align: center;
   white-space: nowrap;
 }
+
+.contactar{
+  padding: 10%;
+}

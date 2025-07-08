@@ -16,6 +16,7 @@
 }
 
 .Inicio button:HOVER{
+    transition: 1s;
     background-color: rgb(0, 0, 99) !important;
     color: white !important;
 }
@@ -71,8 +72,8 @@
     margin: 3%;
   }
 
-  .producto1 h2, h1{
-    color: white;
+  .producto1 h2, .producto1 h1{
+    color: white !important;
     text-align: center;
   }
 
@@ -81,4 +82,18 @@
   }
   h2{
     font-size: 30px;
+  }
+
+  .producto1 .btn-custom {
+    background-color: rgb(83, 83, 182);
+    color: white;
+    width: 12%;
+    font-size: larger;
+    height: 50px;
+  }
+  .producto1 .btn-custom:hover {
+    transition: 1s;
+    background-color: rgb(0, 0, 99);
+    color: white;
+    width: 12%;
   }

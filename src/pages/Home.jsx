@@ -40,13 +40,13 @@ export const Home = () => {
     <div className='producto1'>
       <h1>{producto ? producto.title : "Cargando producto..."}</h1>
       <h2>{producto ? producto.description : "Cargando descripción..."}</h2>
-      <img width="15%" src={producto ? producto.image : "Cargando producto..."}/>
+      <img width="18%" src={producto ? producto.image : "Cargando producto..."}/>
       <button type="button" className="btn btn-custom">Más información</button>
     </div>
     <div className='producto1'>
       <h1>{producto2 ? producto2.title : "Cargando producto..."}</h1>
       <h2>{producto2 ? producto2.description : "Cargando descripción..."}</h2>
-      <img width="15%" src={producto2 ? producto2.image : "Cargando producto..."}/>
+      <img width="18%" src={producto2 ? producto2.image : "Cargando producto..."}/>
       <button type="button" className="btn btn-custom">Más información</button>
     </div>
     </>
