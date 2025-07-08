@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import './Tarjeta.css'
 
 export const Tarjeta = ({title, description, image, id}) => {
   console.log("el índice de este producto es" + id);
