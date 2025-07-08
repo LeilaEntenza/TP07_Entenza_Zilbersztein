@@ -5,23 +5,38 @@ import { Tarjeta } from '../components/Tarjeta';
 import './Productos.css'
 
 export const Productos = ({lista, setLista}) => {
-  const { category} = useParams();
-  const {id} = useParams();
-  console.log("categoria" + category);
+  const {category, id} = useParams();
+  console.log("categoria " + category);
+  console.log("id" + id);
   useEffect(()=>{
-    const url = category? `https://fakestoreapi.com/products/category/` + category
+    let url;
+    if (id)
+    {
+      url = `https://fakestoreapi.com/products/` + id;
+    }
+    else{
+    url = category? `https://fakestoreapi.com/products/category/` + category
       : "https://fakestoreapi.com/products";
+    }
     console.log("la url es " + url);
     axios.get(url)
     .then(res=>setLista(res.data))
     .catch(err=>console.log(err));
-  }, [category])
+  }, [category, id], [])
+  console.log(lista);
+  if (category || (!id))
   return (
     <>
-    <h1>Productos</h1>
-    <div className='productos'>
-      {lista.map((producto, index)=>(<Tarjeta key={index} title={producto.title} description={producto.description} image={producto.image}/>))}
-    </div>
+      {lista.map((producto)=>(<Tarjeta id={producto.id} title={producto.title} description={producto.description} image={producto.image}/>))}
+    </>
+  )
+  else
+  return (
+    <>
+      <h1>Productos</h1>
+      <div className='productos'>
+        <Tarjeta id={lista.id} title={lista.title} description={lista.description} image={lista.image}/>
+      </div>
     </>
   )
 }

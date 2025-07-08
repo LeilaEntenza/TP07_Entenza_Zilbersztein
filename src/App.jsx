@@ -31,9 +31,10 @@ function App() {
           <Route path="/home" element={<Home lista={lista}/>}></Route>
           <Route path="/contacto" element={<Contacto/>}></Route>
           <Route path="/quienessomos" element={<QuienesSomos/>}></Route>
-          <Route path="/productos/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
-          <Route path="/productos/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/busqueda/:texto"></Route>
         </Route> 
       </Routes> 
     </BrowserRouter>

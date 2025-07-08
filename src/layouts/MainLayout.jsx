@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
+import { Buscador } from '../components/Buscador';
 
 export const MainLayout = () => {
   return (
@@ -23,10 +24,10 @@ export const MainLayout = () => {
                     </a>
                     <ul className="dropdown-menu">
                         <li><Link className="dropdown-item" to="/productos">Ver todos</Link></li>
-                        <li><Link className="dropdown-item" to="/productos/men's clothing">Men's clothing</Link></li>
-                        <li><Link className="dropdown-item" to="/productos/women's clothing">Women's clothing</Link></li>
-                        <li><Link className="dropdown-item" to="/productos/electronics">Electronics</Link></li>
-                        <li><Link className="dropdown-item" to="/productos/jewelery">Jewelery</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/categoria/men's clothing">Men's clothing</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/categoria/women's clothing">Women's clothing</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/categoria/electronics">Electronics</Link></li>
+                        <li><Link className="dropdown-item" to="/productos/categoria/jewelery">Jewelery</Link></li>
                     </ul>
                     </li>
 
@@ -47,10 +48,7 @@ export const MainLayout = () => {
                     </ul>
                     </li>
                 </ul>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <Buscador/>
                 </div>
             </div>
             </nav> 
