@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
+import { Buscador } from '../components/Buscador';
 
 export const MainLayout = () => {
   return (
@@ -47,10 +48,7 @@ export const MainLayout = () => {
                     </ul>
                     </li>
                 </ul>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <Buscador/>
                 </div>
             </div>
             </nav> 

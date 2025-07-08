@@ -34,6 +34,7 @@ function App() {
           <Route path="/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/busqueda/:texto"></Route>
         </Route> 
       </Routes> 
     </BrowserRouter>
