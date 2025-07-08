@@ -4,7 +4,7 @@ import { MainLayout } from './layouts/MainLayout';
 import {Home} from './pages/Home';
 import {Contacto} from './pages/Contacto';
 import {QuienesSomos} from './pages/QuienesSomos';
-import {Productos} from './components/Productos';
+import {Productos} from './pages/Productos';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -31,8 +31,8 @@ function App() {
           <Route path="/home" element={<Home lista={lista}/>}></Route>
           <Route path="/contacto" element={<Contacto/>}></Route>
           <Route path="/quienessomos" element={<QuienesSomos/>}></Route>
-          <Route path="/productos/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
-          <Route path="/productos/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
         </Route> 
       </Routes> 
