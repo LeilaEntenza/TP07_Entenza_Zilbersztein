@@ -27,15 +27,22 @@ export const Productos = ({lista, setLista}) => {
   if (category || (!id))
   return (
     <>
-      {lista.map((producto)=>(<Tarjeta id={producto.id} title={producto.title} description={producto.description} image={producto.image}/>))}
+      <div className='productos'>
+        {lista.map((producto)=>(<Tarjeta id={producto.id} title={producto.title} description={producto.description} image={producto.image} price={producto.price} rating={producto.rating}/>))}
+      </div>
     </>
   )
   else
   return (
     <>
-      <h1>Productos</h1>
-      <div className='productos'>
-        <Tarjeta id={lista.id} title={lista.title} description={lista.description} image={lista.image}/>
+      <h1>{lista.title}</h1>
+      <div className='detalles'>
+        <img width="17%" src={lista.image}/>
+        <div className='info'>
+          <p>Descripción: {lista.description}</p>
+          <p>Precio: ${lista.price}</p>
+          <p>Calificación: {lista.rating.rate}</p>
+        </div>
       </div>
     </>
   )

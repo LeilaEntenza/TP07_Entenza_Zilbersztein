@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Productos } from './Productos'
 import './Home.css'
 import axios from 'axios'
+import { motion } from "motion/react"
 
 export const Home = () => {
   const [producto, setProducto] = useState();
