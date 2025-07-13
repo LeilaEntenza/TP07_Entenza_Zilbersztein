@@ -1,0 +1,12 @@
+.noEncontrado {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

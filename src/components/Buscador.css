@@ -1,0 +1,17 @@
+.buscar{
+    background-color: #275383;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buscar:hover{
+    background-color: #275383;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+    cursor: pointer;
+}

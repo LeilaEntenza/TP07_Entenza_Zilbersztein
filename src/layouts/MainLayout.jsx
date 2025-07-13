@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
 import { Buscador } from '../components/Buscador';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export const MainLayout = () => {
   return (
@@ -9,7 +10,7 @@ export const MainLayout = () => {
       <header>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">NombreEmpresa</a>
+            <a className="navbar-brand" href="/Home">ORT Market</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -52,12 +53,12 @@ export const MainLayout = () => {
         <div className="container">
           <div className="row">
             <div className="footer-col">
-              <h4>follow us</h4>
+              <h4>Seguinos:</h4>
               <div className="social-links">
-                <a href="#"><i className="fab fa-facebook-f"></i></a>
-                <a href="#"><i className="fab fa-twitter"></i></a>
-                <a href="#"><i className="fab fa-instagram"></i></a>
-                <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/?locale=es_LA"><i className="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/?lang=es"><i className="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/"><i className="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>
