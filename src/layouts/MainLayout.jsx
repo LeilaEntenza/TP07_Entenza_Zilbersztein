@@ -53,7 +53,7 @@ export const MainLayout = () => {
         <div className="container">
           <div className="row">
             <div className="footer-col">
-              <h4>Seguinos:</h4>
+              <h4>Seguinos</h4>
               <div className="social-links">
                 <a href="https://www.facebook.com/?locale=es_LA"><i className="fab fa-facebook-f"></i></a>
                 <a href="https://x.com/?lang=es"><i className="fab fa-twitter"></i></a>
