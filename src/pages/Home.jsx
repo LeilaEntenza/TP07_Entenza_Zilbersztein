@@ -28,7 +28,7 @@ export const Home = () => {
   return (    
     <>
     <div className="Inicio">
-      <h1>Productos</h1>
+      <h1 className="home-title animate__animated animate__fadeInDown">Productos</h1>
       <p>Buscá lo que necesitas</p>
       <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Catálogo</Link>
 </button>
@@ -44,13 +44,13 @@ export const Home = () => {
       <h1>{producto ? producto.title : "Cargando producto..."}</h1>
       <h2>{producto ? producto.description : "Cargando descripción..."}</h2>
       <img width="18%" src={producto ? producto.image : "Cargando producto..."}/>
-      <button type="button" className="btn btn-custom">Más información</button>
+      <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Más información</Link></button>
     </div>
     <div className='producto1'>
       <h1>{producto2 ? producto2.title : "Cargando producto..."}</h1>
       <h2>{producto2 ? producto2.description : "Cargando descripción..."}</h2>
       <img width="18%" src={producto2 ? producto2.image : "Cargando producto..."}/>
-      <button type="button" className="btn btn-custom">Más información</button>
+      <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Más información</Link></button>
     </div>
     </>
 
