@@ -1,10 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 export const Buscador = () => {
-  
+    const navigate = useNavigate()
     const filtrar = (e) =>{
-        e.preventDefault();
-        console.log(e.target.busqueda.value);
+      e.preventDefault();
+      const texto = e.target.busqueda.value;
+      navigate(`/busqueda/${texto}`);
     }
   return (
     <form className="d-flex" role="search" onSubmit={filtrar}>

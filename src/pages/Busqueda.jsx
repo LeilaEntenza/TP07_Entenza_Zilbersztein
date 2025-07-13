@@ -7,7 +7,7 @@ export const Busqueda = ({lista}) => {
   const listaNueva = lista.filter(producto =>
     producto.title.toLowerCase().includes(parametro.toLowerCase())
   );
-  if (listaNueva)
+  if (listaNueva.length > 0)
   return (
     <>
       {listaNueva.map((producto)=>(<Tarjeta id={producto.id} title={producto.title} description={producto.description} image={producto.image}/>))}

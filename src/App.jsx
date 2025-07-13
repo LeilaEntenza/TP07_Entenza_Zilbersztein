@@ -8,6 +8,7 @@ import {Productos} from './pages/Productos';
 import {Marcas} from './pages/Marcas';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Busqueda } from './pages/Busqueda';
 
 function App() {
   const[lista, setLista] = useState([]);
@@ -36,7 +37,7 @@ function App() {
           <Route path="/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
-          <Route path="/busqueda/:texto"></Route>
+          <Route path="/busqueda/:texto" element ={<Busqueda lista={lista} setLista={setLista}/>}></Route>
           <Route path="/marcas" element={<Marcas/>}></Route>
         </Route> 
       </Routes> 
