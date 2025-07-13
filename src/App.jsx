@@ -5,6 +5,7 @@ import {Home} from './pages/Home';
 import {Contacto} from './pages/Contacto';
 import {QuienesSomos} from './pages/QuienesSomos';
 import {Productos} from './pages/Productos';
+import {Marcas} from './pages/Marcas';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/busqueda/:texto"></Route>
+          <Route path="/marcas" element={<Marcas/>}></Route>
         </Route> 
       </Routes> 
     </BrowserRouter>

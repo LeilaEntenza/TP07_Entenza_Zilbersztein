@@ -98,3 +98,8 @@
     color: white;
     width: 12%;
   }
+
+  .enlace {
+    color: white;
+    text-decoration: none;
+  }

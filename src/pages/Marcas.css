@@ -1,0 +1,8 @@
+.marcas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.marcas .card img {
+    height: 150px;
+}

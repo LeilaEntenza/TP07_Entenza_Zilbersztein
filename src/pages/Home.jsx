@@ -3,6 +3,7 @@ import { Productos } from './Productos'
 import './Home.css'
 import axios from 'axios'
 import { motion } from "motion/react"
+import { Link, Outlet } from 'react-router'
 
 export const Home = () => {
   const [producto, setProducto] = useState();
@@ -29,7 +30,8 @@ export const Home = () => {
     <div className="Inicio">
       <h1>Productos</h1>
       <p>Buscá lo que necesitas</p>
-      <button type="button" className="btn btn-custom">Catálogo</button>
+      <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Catálogo</Link>
+</button>
     </div>
     <div className='info2'>
     <div className='informacion'>

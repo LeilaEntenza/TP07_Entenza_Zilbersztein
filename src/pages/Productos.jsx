@@ -41,7 +41,7 @@ export const Productos = ({lista, setLista}) => {
         <div className='info'>
           <p>Descripción: {lista.description}</p>
           <p>Precio: ${lista.price}</p>
-          <p>Calificación: {lista.rating.rate}</p>
+          <p>Calificación: {lista.rating ? lista.rating.rate : 'N/A'}</p>
         </div>
       </div>
     </>

@@ -11,6 +11,7 @@ p{
 .persona img{
     width: 12%;
     border-radius: 200px;
+    padding: 0;
 }
 
 .a{
