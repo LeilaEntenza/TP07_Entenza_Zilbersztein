@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import './Buscador.css';
 
 export const Buscador = () => {
+    const navigate = useNavigate()
     const [error, setError] = useState('');
 
     const filtrar = (e) =>{
@@ -13,6 +14,7 @@ export const Buscador = () => {
         return;
       }
       setError('');
+      navigate(`/busqueda/${texto}`);
     }
   return (
     <form className="d-flex" role="search" onSubmit={filtrar}>
