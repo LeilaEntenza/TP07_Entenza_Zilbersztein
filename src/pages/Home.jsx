@@ -33,13 +33,14 @@ export const Home = () => {
       <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Catálogo</Link>
 </button>
     </div>
-    <div className='info2'>
+    <div className='info3'>
     <div className='informacion'>
       <p className='barra'>Envíos internacionales</p>
       <p className='barra'>Diversos métodos de pago</p>
       <p>Retiro al día siguiente de tu compra</p>
     </div>
     </div> 
+    <div className='info3'>
     <div className='producto1'>
       <h1>{producto ? producto.title : "Cargando producto..."}</h1>
       <h2>{producto ? producto.description : "Cargando descripción..."}</h2>
@@ -51,6 +52,7 @@ export const Home = () => {
       <h2>{producto2 ? producto2.description : "Cargando descripción..."}</h2>
       <img width="18%" src={producto2 ? producto2.image : "Cargando producto..."}/>
       <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Más información</Link></button>
+    </div>
     </div>
     </>
 
