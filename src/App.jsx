@@ -9,6 +9,7 @@ import {Marcas} from './pages/Marcas';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Busqueda } from './pages/Busqueda';
+import ProductoDetalle from './pages/ProductoDetalle';
 
 function App() {
   const[lista, setLista] = useState([]);
@@ -31,11 +32,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout/>}>
           <Route index element={<Navigate to="/TP07_Entenza_Zilbersztein/home" replace />} />
-          <Route path="/home" element={<Home lista={lista}/>}></Route>
+          <Route path="/TP07_Entenza_Zilbersztein/home" element={<Home lista={lista}/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/contacto" element={<Contacto/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/quienessomos" element={<QuienesSomos/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
-          <Route path="/TP07_Entenza_Zilbersztein/productos/producto/:id" element={<Productos lista={lista} setLista={setLista}/>}></Route>
+          <Route path="/TP07_Entenza_Zilbersztein/producto/:id" element={<ProductoDetalle lista={lista} setLista={setLista}/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/busqueda/:texto" element ={<Busqueda lista={lista} setLista={setLista}/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/marcas" element={<Marcas/>}></Route>

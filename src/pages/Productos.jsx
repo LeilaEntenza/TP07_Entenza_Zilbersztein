@@ -5,19 +5,19 @@ import { Tarjeta } from '../components/Tarjeta';
 import './Productos.css'
 
 export const Productos = ({lista, setLista}) => {
-  const {category, id} = useParams();
+  const {category} = useParams();
 
   useEffect(()=>{
     let url;
-    if (id) {
-      url = `https://fakestoreapi.com/products/` + id;
-    } else {
-      url = category ? `https://fakestoreapi.com/products/category/` + category : "https://fakestoreapi.com/products";
+    if (category) {
+      url = `https://fakestoreapi.com/products/category/` + category;
+    } else {      
+      url = `https://fakestoreapi.com/products/`;
     }
     axios.get(url)
       .then(res => setLista(res.data))
       .catch(err => console.log(err));
-  }, [category, id]);
+  }, [category]);
 
   if (Array.isArray(lista)) {
     return (
@@ -29,19 +29,5 @@ export const Productos = ({lista, setLista}) => {
         </div>
       </>
     );
-  } else {
-    return (
-      <>
-        <h1>{lista.title}</h1>
-        <div className='detalles'>
-          <img width="17%" src={lista.image}/>
-          <div className='info'>
-            <p>Descripción: {lista.description}</p>
-            <p>Precio: ${lista.price}</p>
-            <p>Calificación: {lista.rating ? lista.rating.rate : 'N/A'}</p>
-          </div>
-        </div>
-      </>
-    );
-  }
+  } 
 }
