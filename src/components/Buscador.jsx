@@ -14,7 +14,7 @@ export const Buscador = () => {
         return;
       }
       setError('');
-      navigate(`/TP07_Entenza_Zilbersztein/busqueda/${texto}`);
+      navigate(`/busqueda/${texto}`);
     }
   return (
     <form className="d-flex" role="search" onSubmit={filtrar}>
