@@ -89,6 +89,7 @@ textarea {
 .fs-form {
   display: grid;
   row-gap: 1.5rem;
+  width: 40%;
 }
 
 .fs-form:where(.fs-layout__2-column) {
@@ -390,4 +391,6 @@ fieldset {
 
 .contactar{
   padding: 10%;
+  display: flex;
+  justify-content: center;  
 }
