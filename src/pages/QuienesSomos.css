@@ -2,6 +2,9 @@ p{
     text-align: center;
     font-size: larger;
 }
+.QuienesSomosInicio p, .mision p, .persona p{
+    color: black !important;
+}
 
 .persona{
     width: 100%;
