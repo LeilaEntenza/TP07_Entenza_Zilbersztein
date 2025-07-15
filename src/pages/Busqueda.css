@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.noEncontrado p{
+  color: black !important;
+}
+
 .resultados {
   display: flex;
   flex-wrap: wrap;
