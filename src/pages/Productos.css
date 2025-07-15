@@ -9,6 +9,10 @@ h1{
     color: #000 !important;
 }
 
+.info p{
+    color: #000 !important;
+}
+
 .detalles{
     display: flex;
     align-items: center;

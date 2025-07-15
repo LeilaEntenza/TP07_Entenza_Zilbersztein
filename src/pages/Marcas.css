@@ -6,3 +6,7 @@
 .marcas .card img {
     height: 150px;
 }
+
+.card-body p{
+    color: black !important;
+}
