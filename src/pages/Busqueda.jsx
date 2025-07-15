@@ -28,6 +28,7 @@ export const Busqueda = ({ lista }) => {
             title={producto.title}
             description={producto.description}
             image={producto.image}
+            price={producto.price}
           />
         ))}
       </div>

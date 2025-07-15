@@ -11,6 +11,7 @@ export const Tarjeta = ({title, description, image, id, price, rating}) => {
         <div className="card-body card-body-custom">
             <h5 className="card-title line-clamp2">{title}</h5>
             <p className="card-text line-clamp">{description}</p>
+            <p>Precio: ${price}</p>
             <Link className="btn btn-custom1" to={enlace}>Ver detalle</Link>
         </div>
     </div> 
