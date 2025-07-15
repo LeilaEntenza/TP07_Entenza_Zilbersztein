@@ -31,8 +31,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout/>}>
-          <Route index element={<Navigate to="/TP07_Entenza_Zilbersztein/home" replace />} />
-          <Route path="/TP07_Entenza_Zilbersztein/home" element={<Home lista={lista}/>}></Route>
+          <Route index element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<Home lista={lista}/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/contacto" element={<Contacto/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/quienessomos" element={<QuienesSomos/>}></Route>
           <Route path="/TP07_Entenza_Zilbersztein/productos/categoria/:category" element={<Productos lista={lista} setLista={setLista}/>}></Route>
