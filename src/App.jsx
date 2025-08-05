@@ -10,7 +10,10 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Busqueda } from './pages/Busqueda';
 import ProductoDetalle from './pages/ProductoDetalle';
-
+//para el carrito: crear un contexto con la lista. Hacer un componente en el que 
+//aparezca el ícono con el número de componentes que haya. El carrito
+//redirige a una página en la que aparecen los componentes.
+//Se puede eliminar elementos desde ese carrito.
 function App() {
   const[lista, setLista] = useState([]);
   useEffect(()=>{
