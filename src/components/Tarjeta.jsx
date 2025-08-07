@@ -4,7 +4,7 @@ import './Tarjeta.css'
 
 export const Tarjeta = ({title, description, image, id, price}) => {
   console.log("el índice de este producto es" + id);
-  const enlace = "/TP07_Entenza_Zilbersztein/producto/" + id;
+  const enlace = "/TP07_Entenza_Zilbersztein/producto/" + id;//chequear dirección
   return (
     <div id={id} className="card card-custom" style={{width: '18rem'}}>
         <img src={image} className="card-img-top card-image-custom"/> 
