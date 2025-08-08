@@ -3,6 +3,8 @@ import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
 import { Buscador } from '../components/Buscador';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { CartWidget } from '../components/CartWidget';
+import CartProvider from '../context/CartContext';
 
 export const MainLayout = () => {
   return (
@@ -43,6 +45,7 @@ export const MainLayout = () => {
               </ul>
               <Buscador />
             </div>
+            <CartProvider><CartWidget/></CartProvider>
           </div>
         </nav>
       </header>
