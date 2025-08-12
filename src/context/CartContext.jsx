@@ -1,13 +1,11 @@
-import React, { createContext, useState} from "react";
+import React, { createContext, useEffect, useState} from "react";
 
 export const CartContext = createContext();
 
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
-
   const addToCart =(producto) =>{
     setCartItems([...cartItems, producto]);
-    console.log(cartItems);
   }
   const removeFromCart = (idProducto) =>{
     const nuevoArray = cartItems.filter(producto=>producto.id!==idProducto);
@@ -26,6 +24,7 @@ const CartProvider = (props) => {
     <CartContext.Provider
       value={{
         cartItems,
+        cantCartItems:cartItems.length,
         addToCart,
         removeFromCart,
         clearCart,

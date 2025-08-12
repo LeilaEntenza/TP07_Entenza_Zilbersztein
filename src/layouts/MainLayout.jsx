@@ -44,7 +44,7 @@ export const MainLayout = () => {
                 </li>
               </ul>
               <Buscador />
-                <CartProvider><CartWidget/></CartProvider>
+              <CartWidget/>
             </div>
           </div>
         </nav>
