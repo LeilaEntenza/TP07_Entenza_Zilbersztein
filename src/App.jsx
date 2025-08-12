@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Busqueda } from './pages/Busqueda';
 import ProductoDetalle from './pages/ProductoDetalle';
+import { Carrito } from './pages/Carrito'
 //para el carrito: crear un contexto con la lista. Hacer un componente en el que 
 //aparezca el ícono con el número de componentes que haya. El carrito
 //redirige a una página en la que aparecen los componentes.
@@ -43,6 +44,7 @@ function App() {
           <Route path="/productos" element={<Productos lista={lista} setLista={setLista}/>}></Route>
           <Route path="/busqueda/:texto" element ={<Busqueda lista={lista} setLista={setLista}/>}></Route>
           <Route path="/marcas" element={<Marcas/>}></Route>
+          <Route path="/carrito" element={<Carrito/>}></Route>
         </Route> 
       </Routes> 
     </BrowserRouter>
