@@ -1,10 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router';
+import { CartContext } from '../context/CartContext';
+
 
 function ProductoDetalle() {
   const {id} = useParams();
   const [producto,setProducto] = useState(null);
+  const {addToCart} = useContext(CartContext);
 
   useEffect(()=>{
     let url;
@@ -27,6 +30,7 @@ function ProductoDetalle() {
             <p>Descripción: {producto.description}</p>
             <p>Precio: ${producto.price}</p>
             <p>Calificación: {producto.rating ? producto.rating.rate : 'N/A'}</p>
+            <button onClick={()=>addToCart()}>Añadir al carrito</button>
           </div>
         </div>
       </>

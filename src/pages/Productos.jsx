@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import {useParams} from "react-router-dom";
 import { Tarjeta } from '../components/Tarjeta';
 import './Productos.css'
+import CartProvider from '../context/CartContext';
 
 export const Productos = ({lista, setLista}) => {
   const {category} = useParams();
@@ -22,11 +23,13 @@ export const Productos = ({lista, setLista}) => {
   if (Array.isArray(lista)) {
     return (
       <>
-        <div className='productos'>
-          {lista.map((producto) => (
-            <Tarjeta key={producto.id} id={producto.id} title={producto.title} description={producto.description} image={producto.image} price={producto.price} rating={producto.rating}/>
-          ))}
-        </div>
+        <CartProvider>
+          <div className='productos'>
+            {lista.map((producto) => (
+              <Tarjeta key={producto.id} id={producto.id} title={producto.title} description={producto.description} image={producto.image} price={producto.price} rating={producto.rating} category={producto.category}/>
+            ))}
+          </div>
+        </CartProvider>
       </>
     );
   } 
