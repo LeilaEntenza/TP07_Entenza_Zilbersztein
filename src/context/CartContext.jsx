@@ -7,6 +7,7 @@ const CartProvider = (props) => {
 
   const addToCart =(producto) =>{
     setCartItems([...cartItems, producto]);
+    console.log(cartItems);
   }
   const removeFromCart = (idProducto) =>{
     const nuevoArray = cartItems.filter(producto=>producto.id!==idProducto);

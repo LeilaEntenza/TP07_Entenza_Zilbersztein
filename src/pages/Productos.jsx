@@ -23,13 +23,11 @@ export const Productos = ({lista, setLista}) => {
   if (Array.isArray(lista)) {
     return (
       <>
-        <CartProvider>
           <div className='productos'>
             {lista.map((producto) => (
               <Tarjeta key={producto.id} id={producto.id} title={producto.title} description={producto.description} image={producto.image} price={producto.price} rating={producto.rating} category={producto.category}/>
             ))}
           </div>
-        </CartProvider>
       </>
     );
   } 
