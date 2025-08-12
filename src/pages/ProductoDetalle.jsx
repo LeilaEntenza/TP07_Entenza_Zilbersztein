@@ -1,10 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router';
+import CartProvider, { CartContext } from '../context/CartContext';
+
 
 function ProductoDetalle() {
   const {id} = useParams();
   const [producto,setProducto] = useState(null);
+  const {addToCart} = useContext(CartContext);
 
   useEffect(()=>{
     let url;
@@ -20,15 +23,16 @@ function ProductoDetalle() {
 
   return (
     <>
-        <h1>{producto.title}</h1>
-        <div className='detalles'>
-          <img width="17%" src={producto.image}/>
-          <div className='info'>
-            <p>Descripción: {producto.description}</p>
-            <p>Precio: ${producto.price}</p>
-            <p>Calificación: {producto.rating ? producto.rating.rate : 'N/A'}</p>
+          <h1>{producto.title}</h1>
+          <div className='detalles'>
+            <img width="17%" src={producto.image}/>
+            <div className='info'>
+              <p>Descripción: {producto.description}</p>
+              <p>Precio: ${producto.price}</p>
+              <p>Calificación: {producto.rating ? producto.rating.rate : 'N/A'}</p>
+              <button onClick={()=>addToCart(producto)}>Añadir al carrito</button>
+            </div>
           </div>
-        </div>
       </>
   )
 }
