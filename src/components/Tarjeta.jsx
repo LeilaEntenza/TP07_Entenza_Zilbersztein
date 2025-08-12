@@ -13,8 +13,10 @@ export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
           <h5 className="card-title line-clamp2">{title}</h5>
           <p className="card-text line-clamp">{description}</p>
           <p>Precio: ${price}</p>
-          <Link className="btn btn-custom1" to={enlace}>Ver detalle</Link>
-          <button onClick={()=>addToCart({category:category, description:description,id:id,image:image,price:price,rating:rating,title:title})}>Añadir al carrito</button> 
+          <div className='buttonsProd'>
+            <Link className="btn btn-custom1" to={enlace}>Ver detalle</Link>
+            <button className='agregarButton' onClick={()=>addToCart({category:category, description:description,id:id,image:image,price:price,rating:rating,title:title})}>Añadir al carrito</button> 
+          </div>
         </div>
     </div> 
   )

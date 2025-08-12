@@ -19,26 +19,27 @@ export const CartWidget = () => {
         <span className="cant">{cartItems.length}</span>
       </div>
 
-      {/* Sidebar menu */}
       <div className={`sidebar ${open ? 'open' : ''}`}>
         <div className="sidebar-header">
           <h4>Carrito</h4>
           <button onClick={toggleMenu} className="close-btn">&times;</button>
         </div>
         <div className="sidebar-content">
-          {cartItems.length === 0 ? (
-            <p>No hay productos en el carrito.</p>
-          ) : (
-            cartItems.map((item, index) => (
-              <div key={index} className="producto">
-                <p>{item.nombre} x {item.cantidad}</p>
+          <div className='producto'>
+              <p className='carritoP'>Producto 1</p>
+              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
+              <div className='numberInputContainer'>
+                <button className='menos'>-</button>
+                <input type='number' value="0" min={0} max={100}/>
+                <button className='mas'>+</button>
               </div>
-            ))
-          )}
+          </div>
+          <div className='producto'>
+            <p className='carritoP'>Producto 2</p>
+            <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
+          </div>
         </div>
       </div>
-
-      {/* Fondo oscuro */}
       {open && <div className="overlay" onClick={toggleMenu}></div>}
     </>
   );

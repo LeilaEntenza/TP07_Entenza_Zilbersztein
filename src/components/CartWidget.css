@@ -62,3 +62,31 @@
     z-index: 1000;
   }
   
+  .carritoP{
+    color:black !important;
+    text-align: left;
+    font-size: large;
+  }
+
+  .numberInputContainer{
+    display: flex;
+    align-items: center;
+  }
+
+  .numberInputContainer input[type="number"]{
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .numberInputContainer button{
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .numberInputContainer button:hover{
+    background-color: #e0e0e0;
+  }
