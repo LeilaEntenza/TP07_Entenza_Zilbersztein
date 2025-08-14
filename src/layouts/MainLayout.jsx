@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
 import { Buscador } from '../components/Buscador';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { CartWidget } from '../components/CartWidget';
-import CartProvider from '../context/CartContext';
+import CartProvider, { CartContext } from '../context/CartContext';
+
 
 export const MainLayout = () => {
+  const {setCartItems} = useContext(CartContext);
+  useEffect(()=>{
+    setCartItems(localStorage.getItem("Carrito"));
+  }, [])
   return (
     <div className="layout">
       <header>
