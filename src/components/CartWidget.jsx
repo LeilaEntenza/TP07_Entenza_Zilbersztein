@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import './CartWidget.css';
+import { QuantityInput } from '../components/QuantityInput';
 
 export const CartWidget = () => {
   const { cartItems } = useContext(CartContext);
@@ -28,11 +29,7 @@ export const CartWidget = () => {
           <div className='producto'>
               <p className='carritoP'>Producto 1</p>
               <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <div className='numberInputContainer'>
-                <button className='menos'>-</button>
-                <input type='number' value="0" min={0} max={100}/>
-                <button className='mas'>+</button>
-              </div>
+              <QuantityInput/>
           </div>
           <div className='producto'>
             <p className='carritoP'>Producto 2</p>
