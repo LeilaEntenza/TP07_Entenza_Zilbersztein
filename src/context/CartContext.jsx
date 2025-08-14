@@ -1,9 +1,12 @@
-import React, { createContext, useState} from "react";
+import React, { createContext, useEffect, useState} from "react";
 
 export const CartContext = createContext();
 
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
+  useEffect(()=>{
+    localStorage.setItem("Carrito", cartItems); 
+  }, [cartItems])
   const addToCart =(producto) =>{
     setCartItems([...cartItems, producto]);
   }
@@ -25,6 +28,7 @@ const CartProvider = (props) => {
       value={{
         cartItems,
         cantCartItems:cartItems.length,
+        setCartItems,
         addToCart,
         removeFromCart,
         clearCart,
