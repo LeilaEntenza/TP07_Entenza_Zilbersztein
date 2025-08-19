@@ -43,6 +43,22 @@ export const CartWidget = () => {
             <p className='carritoP'>Producto 2</p>
             <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
           </div>
+          <div className='producto'>
+              <p className='carritoP'>Producto 1</p>
+              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
+              <QuantityInput/>
+          </div>
+          <div className='producto'>
+              <p className='carritoP'>Producto 1</p>
+              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
+              <QuantityInput/>
+          </div>
+          <div className='producto'>
+              <p className='carritoP'>Producto 1</p>
+              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
+              <QuantityInput/>
+          </div>
+          <a href='resumen'><button>Abrir resumen</button></a>
         </div>
       </div>
       {open && <div className="overlay" onClick={toggleMenu}></div>}
