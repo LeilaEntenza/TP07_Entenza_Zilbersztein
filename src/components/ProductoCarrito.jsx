@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { QuantityInput } from './QuantityInput';
+import { CartContext } from '../context/CartContext';
 
-const ProductoCarrito = ({nombre, imagen, cantidad}) => {
+const ProductoCarrito = ({ o }) => {
+  const { updateItemQuantity } = useContext(CartContext);
+  const { id, title, image, quantity } = o;
+
   return (
     <div className='producto'>
-        <p className='carritoP'>{nombre}</p>
-        <img width="100%" src={imagen}/>
-        <div className='numberInputContainer'>
-            <button className='menos'>-</button>
-            <input type='number' value={cantidad} min={0} max={100}/>
-            <button className='mas'>+</button>
-        </div>
+      <p className='carritoP'>{title} x{quantity}</p>
+      <img width="100%" src={image} />
+      <QuantityInput
+        cantidad={quantity}
+        onQuantityChange={(newQuantity) => updateItemQuantity(id, newQuantity)}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ProductoCarrito
+export default ProductoCarrito;
+
+
+
+
+
+
+
+
