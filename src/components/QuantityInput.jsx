@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './QuantityInput.css'; // Importa el CSS
 
-export const  QuantityInput = ({ min = 1, max = 100, initial = 1 }) => {
+export const QuantityInput = ({ min = 1, max = 100, initial = 1 }) => {
   const [quantity, setQuantity] = useState(initial);
 
   const handleChange = (e) => {

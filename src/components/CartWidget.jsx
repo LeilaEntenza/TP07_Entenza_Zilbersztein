@@ -10,6 +10,7 @@ export const CartWidget = () => {
 
   const toggleMenu = () => {
     setOpen(!open);
+    console.log(cartItems);
   };
 
   return (
@@ -29,20 +30,10 @@ export const CartWidget = () => {
         <div className="sidebar-content">
           
           {Array.isArray(cartItems) &&
-              cartItems.map((objeto) => (
-                <ProductoCarrito objeto={objeto} />
+              cartItems.map((o) => (
+                <ProductoCarrito o={o} />
               ))
           }
- 
-          <div className='producto'>
-              <p className='carritoP'>Producto 1</p>
-              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
-          </div>
-          <div className='producto'>
-            <p className='carritoP'>Producto 2</p>
-            <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-          </div>
         </div>
       </div>
       {open && <div className="overlay" onClick={toggleMenu}></div>}

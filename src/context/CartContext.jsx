@@ -6,6 +6,7 @@ const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
   useEffect(()=>{
     localStorage.setItem("Carrito", cartItems); 
+    console.log("items: " + cartItems);
   }, [cartItems])
   const addToCart =(producto) =>{
     setCartItems([...cartItems, producto]);
