@@ -3,6 +3,7 @@ import { CartContext } from '../context/CartContext';
 import './CartWidget.css';
 import ProductoCarrito from './ProductoCarrito';
 import { QuantityInput } from '../components/QuantityInput';
+import { Button } from 'bootstrap';
 
 export const CartWidget = () => {
   const { cartItems } = useContext(CartContext);
@@ -37,7 +38,10 @@ export const CartWidget = () => {
           <div className='producto'>
               <p className='carritoP'>Producto 1</p>
               <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
+              <div className='inputsProd'>
+                <QuantityInput/>
+                  <img className="basura" width="15%" src="https://cdn-icons-png.flaticon.com/512/860/860829.png"/>
+              </div>
           </div>
           <div className='producto'>
             <p className='carritoP'>Producto 2</p>

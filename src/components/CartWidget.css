@@ -93,4 +93,14 @@
     background-color: #e0e0e0;
   }
 
+  .basura{
+    box-shadow: none;
+  }
+
+  .inputsProd{
+    display: flex;
+    justify-content: space-around;
+  }
+
+
   
