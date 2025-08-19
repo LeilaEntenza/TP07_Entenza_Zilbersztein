@@ -24,6 +24,14 @@ const CartProvider = (props) => {
     return montoTotal;
   }
 
+  const updateItemQuantity = (id, newQuantity) => {
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -33,7 +41,8 @@ const CartProvider = (props) => {
         addToCart,
         removeFromCart,
         clearCart,
-        getTotal 
+        getTotal,
+        updateItemQuantity 
       }}
     >
       {props.children}

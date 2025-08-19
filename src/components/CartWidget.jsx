@@ -1,16 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import './CartWidget.css';
 import ProductoCarrito from './ProductoCarrito';
-import { QuantityInput } from '../components/QuantityInput';
 
 export const CartWidget = () => {
   const { cartItems } = useContext(CartContext);
+  const [arrayNuevo, setArrayNuevo] = useState([]);
   const [open, setOpen] = useState(false);
 
   const toggleMenu = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    if (open) {
+      const groupedItems = cartItems.reduce((acc, item) => {
+        if (!acc[item.id]) {
+          acc[item.id] = { ...item, quantity: 1 };
+        } else {
+          acc[item.id].quantity += 1;
+        }
+        return acc;
+      }, {});
+
+      setArrayNuevo(Object.values(groupedItems));
+    }
+  }, [open, cartItems]);
 
   return (
     <>
@@ -28,36 +43,12 @@ export const CartWidget = () => {
         </div>
         <div className="sidebar-content">
           
-          {Array.isArray(cartItems) &&
-              cartItems.map((objeto) => (
-                <ProductoCarrito objeto={objeto} />
+          {Array.isArray(arrayNuevo) &&
+              arrayNuevo.map((objeto) => (
+                <ProductoCarrito key={objeto.id} o={objeto} />
               ))
           }
- 
-          <div className='producto'>
-              <p className='carritoP'>Producto 1</p>
-              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
-          </div>
-          <div className='producto'>
-            <p className='carritoP'>Producto 2</p>
-            <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-          </div>
-          <div className='producto'>
-              <p className='carritoP'>Producto 1</p>
-              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
-          </div>
-          <div className='producto'>
-              <p className='carritoP'>Producto 1</p>
-              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
-          </div>
-          <div className='producto'>
-              <p className='carritoP'>Producto 1</p>
-              <img width="100%" src="https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/12858/production/_130346857_capture.png"/>
-              <QuantityInput/>
-          </div>
+          
           <a href='resumen'><button>Abrir resumen</button></a>
         </div>
       </div>
