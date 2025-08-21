@@ -130,3 +130,12 @@
     transform: translateY(0);
   }
 }
+
+.producto1 img {
+  transition: transform 0.3s ease; 
+  cursor: pointer; 
+}
+
+.producto1 img:hover {
+  transform: scale(1.1); /* se agranda un 20% */
+}
