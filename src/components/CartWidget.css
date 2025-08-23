@@ -3,104 +3,296 @@
     align-items: center;
     cursor: pointer;
     position: relative;
-    margin:1%;
-  }
-  
-  .cant {
-    color: rgb(255, 255, 255);
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #000000;
-    border-radius: 50%;
-    padding: 2px 6px;
-    margin-left: 5px;
-    min-width: 20px;
-    text-align: center;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 280px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    z-index: 1001;
-    transition: right 0.3s ease;
-    padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  
-  .sidebar.open {
-    right: 0;
-  }
-  
-  .sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .sidebar-content {
-    margin-top: 20px;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.4);
-    z-index: 1000;
-  }
-  
-  .carritoP{
-    color:black !important;
-    text-align: left;
-    font-size: large;
-  }
+    margin: 1%;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
 
-  .numberInputContainer{
-    display: flex;
-    align-items: center;
-  }
+.carrito:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
 
-  .numberInputContainer input[type="number"]{
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 5px;
-  }
+.carrito svg {
+  color: var(--primary-color);
+  transition: var(--transition);
+}
 
-  .numberInputContainer button{
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+.carrito:hover svg {
+  transform: rotate(5deg);
+}
 
-  .numberInputContainer button:hover{
-    background-color: #e0e0e0;
-  }
+.cant {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  background: var(--primary-color);
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 5px;
+  min-width: 20px;
+  text-align: center;
+  animation: pulse 2s infinite;
+  box-shadow: 0 2px 8px var(--shadow-medium);
+}
 
-  .basura{
-    box-shadow: none;
-  }
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 25px var(--shadow-heavy);
+  z-index: 1001;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0 0 0 var(--border-radius);
+}
 
-  .inputsProd{
-    display: flex;
-    justify-content: space-around;
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.sidebar-header:hover::before {
+  left: 100%;
+}
+
+.sidebar-header h4 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.sidebar-content {
+  padding: 1.5rem;
+  height: calc(100% - 80px);
+  overflow-y: auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(5px);
+}
+
+.carritoP {
+  color: var(--text-dark) !important;
+  text-align: left;
+  font-size: large;
+  font-weight: 500;
+}
+
+.numberInputContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.numberInputContainer input[type="number"] {
+  width: 60px;
+  text-align: center;
+  border: 2px solid #e9ecef;
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.numberInputContainer input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(83, 83, 182, 0.1);
+}
+
+.numberInputContainer button {
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  min-width: 40px;
+}
+
+.numberInputContainer button:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.basura {
+  box-shadow: none;
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.basura:hover {
+  background: rgba(220, 53, 69, 0.1);
+  transform: scale(1.1);
+}
+
+.inputsProd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Botón de resumen */
+.sidebar-content button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar-content button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.sidebar-content button:hover::before {
+  left: 0;
+}
+
+.sidebar-content button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+/* Animación de entrada para productos del carrito */
+.sidebar-content > * {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estado vacío del carrito */
+.cart-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+.cart-empty svg {
+  font-size: 3rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
 
 
   

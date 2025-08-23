@@ -1,9 +1,62 @@
 .card-image-custom {
     height: 250px;
+    object-fit: contain;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s;
+}
+
+.card:hover .card-image-custom::before {
+  left: 100%;
+}
+
+.card:hover .card-image-custom {
+  transform: scale(1.05);
 }
 
 .card-custom{
-    height: 500px
+    height: 500px;
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    background: var(--white);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.card-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card-custom:hover::before {
+  transform: scaleX(1);
+}
+
+.card-custom:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px var(--shadow-medium);
 }
 
 .line-clamp {
@@ -11,41 +64,193 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
 
-  .line-clamp2 {
+.line-clamp2 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
 
-  .card-body-custom{
-    padding: 3%;
-  }
+.card-body-custom{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+}
 
-  .btn-custom1 {
-    background-color: rgb(83, 83, 182);
-    color: white;
-  }
-  .btn-custom1:hover {
-    transition: 1s;
-    background-color: rgb(0, 0, 99);    
-    color: white;
-  }
-  .card p{
+.card p{
     text-align: left;
-  }
+    margin: 0.5rem 0;
+}
 
-  .agregarButton{
-    padding: 1%;
-    margin-left: 5%;
-    border-radius: 5px;
-    color: rgb(22, 22, 22)
-  }
+.card .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-  .buttonsProd{
+.card .price::before {
+  content: '$';
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.btn-custom1 {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-custom1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-custom1:hover::before {
+  left: 0;
+}
+
+.btn-custom1:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.agregarButton{
+    padding: 0.75rem 1.5rem;
+    margin-left: 0.5rem;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+    border: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.agregarButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.agregarButton:hover::before {
+  left: 0;
+}
+
+.agregarButton:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.buttonsProd{
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Animación de entrada para las tarjetas */
+.card-custom {
+  animation: cardEntrance 0.6s ease-out;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Efecto de brillo en hover */
+.card-custom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.card-custom:hover::after {
+  transform: translateX(100%);
+}
+
+/* Badge de descuento (opcional) */
+.discount-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+/* Rating stars */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.star {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.rating-count {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-left: 0.5rem;
+}
