@@ -8,22 +8,11 @@ const ProductoCarrito = ({ o }) => {
 
   return (
     <div className='producto'>
-      <p className='carritoP'>{title} x{quantity}</p>
+      <p className='carritoP'>{title}</p>
       <img width="100%" src={image} />
-      <QuantityInput
-        cantidad={quantity}
-        onQuantityChange={(newQuantity) => updateItemQuantity(id, newQuantity)}
-      />
+      <QuantityInput cantidad={quantity} id={id} updateItemQuantity={updateItemQuantity} />
     </div>
   );
 };
 
 export default ProductoCarrito;
-
-
-
-
-
-
-
-

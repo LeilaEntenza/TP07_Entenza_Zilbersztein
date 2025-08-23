@@ -10,7 +10,9 @@ import CartProvider, { CartContext } from '../context/CartContext';
 export const MainLayout = () => {
   const {setCartItems} = useContext(CartContext);
   useEffect(()=>{
-    setCartItems(localStorage.getItem("Carrito"));
+    const storedCart = JSON.parse(localStorage.getItem("Carrito"));
+    if (storedCart) setCartItems(storedCart) 
+    else setCartItems([]);
   }, [])
   return (
     <div className="layout">
