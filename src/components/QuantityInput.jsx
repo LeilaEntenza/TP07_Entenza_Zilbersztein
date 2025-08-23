@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './QuantityInput.css';
 
-export const QuantityInput = ({ min = 1, max = 100, cantidad, onQuantityChange = () => {} }) => {
-  const [quantity, setQuantity] = useState(cantidad);
-
-  useEffect(() => {
-    onQuantityChange(quantity); 
-  }, [quantity, onQuantityChange]);
+export const QuantityInput = ({ cantidad, id, updateItemQuantity }) => {
+  const min = 1, max = 100;
 
   const handleChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value)) setQuantity(Math.min(Math.max(value, min), max));
+    const value = Math.max(min, Math.min(max, parseInt(e.target.value) || 0));
+    updateItemQuantity(id, value);
   };
 
   const handleClick = (action) => {
-    setQuantity(prev => {
-      if (action === 'add' && prev < max) return prev + 1;
-      if (action === 'minus' && prev > min) return prev - 1;
-      return prev;
-    });
+    let newVal = cantidad;
+    if (action === 'add') newVal = Math.min(cantidad + 1, max);
+    if (action === 'minus') newVal = Math.max(cantidad - 1, min);
+    updateItemQuantity(id, newVal);
   };
 
   return (
@@ -27,7 +22,7 @@ export const QuantityInput = ({ min = 1, max = 100, cantidad, onQuantityChange =
       <input
         className='qInput'
         type='number'
-        value={quantity}
+        value={cantidad}
         onChange={handleChange}
         min={min}
         max={max}
