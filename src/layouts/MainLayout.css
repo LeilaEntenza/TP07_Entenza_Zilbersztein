@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 .container{
 	max-width: 1170px;
@@ -52,6 +52,8 @@ header {
   text-decoration: none;
   transition: var(--transition);
   position: relative;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .navbar-brand:hover {
@@ -82,6 +84,9 @@ header {
   border-radius: var(--border-radius);
   transition: var(--transition);
   position: relative;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
 }
 
 .navbar-nav .nav-link:hover {
