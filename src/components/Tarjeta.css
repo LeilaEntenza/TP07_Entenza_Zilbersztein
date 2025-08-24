@@ -85,12 +85,14 @@
 }
 
 .card-body-custom{
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 250px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 250px; <-- comentar o borrar */
+  flex: 1;
 }
+
 
 .card p{
     text-align: left;

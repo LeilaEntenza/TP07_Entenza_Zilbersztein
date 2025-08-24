@@ -1,12 +1,11 @@
-/* Variables CSS para consistencia en colores y espaciado */
 :root {
   --primary-color: rgb(83, 83, 182);
   --primary-dark: rgb(0, 0, 99);
   --secondary-color: #f8f9fa;
-  --accent-color: #4a90e2; /* Cambiado de naranja a azul */
-  --accent-dark: #357abd; /* Azul más oscuro para hover */
-  --text-dark: #2c3e50; /* Color de texto más elegante */
-  --text-light: #7f8c8d; /* Gris más suave */
+  --accent-color: #4a90e2;
+  --accent-dark: #357abd;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
   --white: #ffffff;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.15);
@@ -15,7 +14,6 @@
   --transition: all 0.3s ease;
 }
 
-/* Reset y configuración base */
 * {
   box-sizing: border-box;
 }
@@ -42,7 +40,8 @@ html, body, #root {
   flex: 1;
 }
 
-/* Animaciones globales */
+body {
+max-width: 100%;}
 @keyframes fadeIn {
   from {
     opacity: 0;

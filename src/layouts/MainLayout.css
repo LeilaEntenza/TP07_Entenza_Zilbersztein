@@ -19,7 +19,6 @@ ul{
 	flex-direction: column;
 }
 
-/* Header y navegación mejorados */
 header {
   background: white;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -132,17 +131,16 @@ header {
 }
 
 .main-content {
-	flex: 1;
+  flex: 1 0 auto; /* permite que crezca naturalmente */
   padding: 1rem 0;
-  animation: fadeIn 0.8s ease-out;
 }
 
-/* Footer mejorado */
 .footer {
-	background: #242424;
-	padding: 70px 0;
-	width: 100%;
-	height: auto;
+  flex-shrink: 0; /* evita que se encoja */
+  background: #242424;
+  padding: 70px 0;
+  width: 100%;
+  height: auto;
   position: relative;
   overflow: hidden;
 }
@@ -152,7 +150,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 2px;
   background: linear-gradient(90deg, var(--primary-color), var(--primary-color));
   animation: shimmer 3s infinite;
