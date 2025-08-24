@@ -8,26 +8,34 @@ export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
   const enlace = "/producto/" + id;//chequear dirección
   
   // Función para renderizar estrellas
-  const renderStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating.rate);
-    const hasHalfStar = rating.rate % 1 !== 0;
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<span key={i} className="star">★</span>);
-    }
-    
-    if (hasHalfStar) {
-      stars.push(<span key="half" className="star">☆</span>);
-    }
-    
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<span key={`empty-${i}`} className="star" style={{color: '#ddd'}}>★</span>);
-    }
-    
-    return stars;
-  };
+ const renderStars = (rating) => {
+  if (!rating || typeof rating.rate !== 'number') {
+    // Mostrar 5 estrellas grises si no hay rating
+    return [...Array(5)].map((_, i) => (
+      <span key={i} className="star" style={{ color: '#ddd' }}>★</span>
+    ));
+  }
+
+  const stars = [];
+  const fullStars = Math.floor(rating.rate);
+  const hasHalfStar = rating.rate % 1 !== 0;
+
+  for (let i = 0; i < fullStars; i++) {
+    stars.push(<span key={i} className="star">★</span>);
+  }
+
+  if (hasHalfStar) {
+    stars.push(<span key="half" className="star">☆</span>);
+  }
+
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  for (let i = 0; i < emptyStars; i++) {
+    stars.push(<span key={`empty-${i}`} className="star" style={{ color: '#ddd' }}>★</span>);
+  }
+
+  return stars;
+};
+ 
 
   return (
     <div id={id} className="card card-custom" style={{width: '18rem'}}>
@@ -36,11 +44,15 @@ export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
           <h5 className="card-title line-clamp2">{title}</h5>
           <p className="card-text line-clamp">{description}</p>
           
-          {/* Rating con estrellas */}
           <div className="rating">
-            {renderStars(rating)}
-            <span className="rating-count">({rating.count})</span>
-          </div>
+            {rating && rating.rate !== undefined 
+              ? renderStars(rating) 
+              : <span className="star-placeholder">Sin calificación</span>}
+            <span className="rating-count">
+              ({rating && rating.count !== undefined ? rating.count : 0})
+            </span>
+        </div>
+ 
           
           <p className="price">{price.toFixed(2)}</p>
           
