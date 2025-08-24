@@ -77,7 +77,7 @@ const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
-        cantCartItems: cartItems.length,
+        cantCartItems: cartItems.reduce((acc, item) => acc + item.quantity, 0),
         setCartItems,
         addToCart,
         removeFromCart,
