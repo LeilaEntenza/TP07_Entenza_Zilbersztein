@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import { QuantityInput } from './QuantityInput';
 import { CartContext } from '../context/CartContext';
+import './ProductoResumen.css'
 
 export const ProductoResumen = ({c}) => {
   const {image, title, price, quantity, id, totalPrice} = c;

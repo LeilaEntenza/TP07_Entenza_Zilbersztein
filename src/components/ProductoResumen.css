@@ -1,0 +1,17 @@
+.quantity-container {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .quantity-container button {
+    flex: 0 0 auto;
+  }
+  
+  .quantity-container .qInput {
+    flex: 1 1 40px;
+    text-align: center;
+  }
+  
