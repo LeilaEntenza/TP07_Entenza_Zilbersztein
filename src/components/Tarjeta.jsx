@@ -7,10 +7,9 @@ export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
   const {addToCart} = useContext(CartContext)
   const enlace = "/producto/" + id;//chequear dirección
   
-  // Función para renderizar estrellas
  const renderStars = (rating) => {
   if (!rating || typeof rating.rate !== 'number') {
-    // Mostrar 5 estrellas grises si no hay rating
+    console.log(image);
     return [...Array(5)].map((_, i) => (
       <span key={i} className="star" style={{ color: '#ddd' }}>★</span>
     ));
