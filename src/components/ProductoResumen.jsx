@@ -1,7 +1,8 @@
 import React, { useContext} from 'react'
 import { QuantityInput } from './QuantityInput';
 import { CartContext } from '../context/CartContext';
-import './ProductoResumen.css'
+import './ProductoResumen.css';
+
 
 export const ProductoResumen = ({c}) => {
   const {image, title, price, quantity, id, totalPrice} = c;
@@ -10,7 +11,7 @@ export const ProductoResumen = ({c}) => {
   return (
     <tr>
         <td className="product-thumbnail">
-            <img src={image} alt="Product 1" className="img-fluid" />
+            <img src={image} alt="Product 1" className="img-fluid imgresumen" />
             </td>
             <td className="product-name">
             <h2 className="h5 text-black">{title}</h2>
@@ -21,8 +22,9 @@ export const ProductoResumen = ({c}) => {
                 className="input-group mb-3 d-flex align-items-center quantity-container"
                 style={{ maxWidth: '120px' }}
             >
-                
-                    <QuantityInput cantidad={quantity} id={id} updateItemQuantity={updateItemQuantity} />
+            <div className='quant'>
+            <QuantityInput cantidad={quantity} id={id} updateItemQuantity={updateItemQuantity} />
+            </div>
             </div>
         </td>
             <td>${totalPrice}</td>

@@ -12,6 +12,7 @@ import { Busqueda } from './pages/Busqueda';
 import ProductoDetalle from './pages/ProductoDetalle';
 import CartProvider from './context/CartContext';
 import { ResumenCompra } from './pages/ResumenCompra'
+import FinalizarCompra from './pages/FinalizarCompra';
 
 //para el carrito: crear un contexto con la lista. Hacer un componente en el que 
 //aparezca el ícono con el número de componentes que haya. El carrito
@@ -48,6 +49,7 @@ function App() {
             <Route path="/busqueda/:texto" element ={<Busqueda lista={lista} setLista={setLista}/>}></Route>
             <Route path="/marcas" element={<Marcas/>}></Route>
             <Route path="/resumen" element={<ResumenCompra/>}></Route>
+            <Route path="/comprafinalizada" element={<FinalizarCompra/>}></Route>
           </Route> 
         </Routes> 
       </BrowserRouter>
