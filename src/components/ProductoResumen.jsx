@@ -2,6 +2,7 @@ import React, { useContext} from 'react'
 import { QuantityInput } from './QuantityInput';
 import { CartContext } from '../context/CartContext';
 import './ProductoResumen.css';
+import { number, shape, string } from 'prop-types';
 
 
 export const ProductoResumen = ({c}) => {
@@ -36,3 +37,14 @@ export const ProductoResumen = ({c}) => {
     </tr>
   )
 }
+ProductoResumen.propTypes = {
+    c:shape({
+        image: string.isRequired,
+        title:string.isRequired,
+        price:number.isRequired,
+        quantity:number.isRequired,
+        id:number.isRequired,
+        totalPrice:number
+    })
+}
+
