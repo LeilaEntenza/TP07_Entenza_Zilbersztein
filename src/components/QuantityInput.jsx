@@ -1,5 +1,6 @@
 import React from 'react';
 import './QuantityInput.css';
+import PropTypes, { number } from 'prop-types';
 
 export const QuantityInput = ({ cantidad, id, updateItemQuantity }) => {
   const min = 1, max = 100;
@@ -31,3 +32,11 @@ export const QuantityInput = ({ cantidad, id, updateItemQuantity }) => {
     </div>
   );
 };
+
+QuantityInput.propTypes = {
+  cantidad: number.isRequired,
+  id: number.isRequired,
+  updateItemQuantity: PropTypes.func.isRequired
+};
+
+

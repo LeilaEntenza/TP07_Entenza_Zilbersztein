@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import './Tarjeta.css'
 import {CartContext } from '../context/CartContext'
+import PropTypes, { number, string } from 'prop-types'
 
 export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
   const {addToCart} = useContext(CartContext)
@@ -64,3 +65,15 @@ export const Tarjeta = ({category,description,id,image,price,rating,title}) => {
   )
 }
 
+Tarjeta.propTypes = {
+  category: string.isRequired,
+  description: string.isRequired,
+  id: number.isRequired,
+  image: string.isRequired,
+  price: number.isRequired,  
+  rating: PropTypes.shape({
+    rate: PropTypes.number,
+    count: PropTypes.number
+  }).isRequired,
+  title: string.isRequired
+};
