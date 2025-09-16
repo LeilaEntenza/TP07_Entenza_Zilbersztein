@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { QuantityInput } from './QuantityInput';
 import { CartContext } from '../context/CartContext';
+import PropTypes, { number, shape, string } from 'prop-types'
 
 const ProductoCarrito = ({ o }) => {
   const { updateItemQuantity } = useContext(CartContext);
@@ -15,4 +16,12 @@ const ProductoCarrito = ({ o }) => {
   );
 };
 
+ProductoCarrito.propTypes = {
+    o:shape({
+    id: number.isRequired,
+    title: string.isRequired,
+    image: string.isRequired,
+    quantity: number.isRequired
+  }).isRequired
+}
 export default ProductoCarrito;
