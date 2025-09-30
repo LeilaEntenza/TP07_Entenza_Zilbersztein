@@ -3,17 +3,14 @@ import { QuantityInput } from './QuantityInput';
 import { CartContext } from '../context/CartContext';
 
 type ProductoCarritoProps = {
-  o: {
     id: number;
     title: string;
     image: string;
     quantity: number;
-  };
 };
 
-const ProductoCarrito: React.FC<ProductoCarritoProps> = ({ o }) => {
+const ProductoCarrito: React.FC<ProductoCarritoProps> = ({ id, title, image, quantity }) => {
   const { updateItemQuantity } = useContext(CartContext);
-  const { id, title, image, quantity } = o;
 
   return (
     <div className="producto">

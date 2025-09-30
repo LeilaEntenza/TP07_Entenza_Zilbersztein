@@ -4,18 +4,16 @@ import { CartContext } from '../context/CartContext';
 import './ProductoResumen.css';
 
 type ProductoResumenProps = {
-  c: {
-    image: string;
-    title: string;
-    price: number;
-    quantity: number;
-    id: number;
-    totalPrice: number;
-  };
+  image: string;
+  title: string;
+  price: number;
+  quantity?: number; // 👈 le ponemos ? si queremos usar default
+  id: number;
+  totalPrice: number;
 };
 
-export const ProductoResumen: React.FC<ProductoResumenProps> = ({ c }) => {
-  const { image, title, price, quantity, id, totalPrice } = c;
+
+export const ProductoResumen: React.FC<ProductoResumenProps> = ({  image, title, price, quantity=1, id, totalPrice  }) => {
   const { updateItemQuantity, removeFromCart } = useContext(CartContext);
 
   return (

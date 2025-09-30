@@ -1,13 +1,14 @@
-import React from 'react';
-import './QuantityInput.css';
-
 type QuantityInputProps = {
-  cantidad: number;
+  cantidad: number; 
   id: number;
   updateItemQuantity: (id: number, cantidad: number) => void;
 };
 
-export const QuantityInput: React.FC<QuantityInputProps> = ({ cantidad, id, updateItemQuantity }) => {
+export const QuantityInput: React.FC<QuantityInputProps> = ({
+  cantidad = 1,
+  id,
+  updateItemQuantity,
+}) => {
   const min = 1, max = 100;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

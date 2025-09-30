@@ -24,7 +24,7 @@ export const Tarjeta: React.FC<TarjetaProps> = ({
   id,
   image,
   price,
-  rating,
+  rating = { rate: 0, count: 0 },
   title,
 }) => {
   const { addToCart } = useContext(CartContext);
