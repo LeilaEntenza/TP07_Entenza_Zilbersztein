@@ -1,16 +1,21 @@
 import React from 'react';
 import './QuantityInput.css';
-import PropTypes, { number } from 'prop-types';
 
-export const QuantityInput = ({ cantidad, id, updateItemQuantity }) => {
+type QuantityInputProps = {
+  cantidad: number;
+  id: number;
+  updateItemQuantity: (id: number, cantidad: number) => void;
+};
+
+export const QuantityInput: React.FC<QuantityInputProps> = ({ cantidad, id, updateItemQuantity }) => {
   const min = 1, max = 100;
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(min, Math.min(max, parseInt(e.target.value) || 0));
     updateItemQuantity(id, value);
   };
 
-  const handleClick = (action) => {
+  const handleClick = (action: 'add' | 'minus') => {
     let newVal = cantidad;
     if (action === 'add') newVal = Math.min(cantidad + 1, max);
     if (action === 'minus') newVal = Math.max(cantidad - 1, min);
@@ -32,11 +37,3 @@ export const QuantityInput = ({ cantidad, id, updateItemQuantity }) => {
     </div>
   );
 };
-
-QuantityInput.propTypes = {
-  cantidad: number.isRequired,
-  id: number.isRequired,
-  updateItemQuantity: PropTypes.func.isRequired
-};
-
-
