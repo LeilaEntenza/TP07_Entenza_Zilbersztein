@@ -1,7 +1,23 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom'; // 👈 en react-router v6 se usa react-router-dom
+import { Link } from 'react-router-dom'; 
 import './Tarjeta.css';
 import { CartContext } from '../context/CartContext';
+import { z } from 'zod';
+
+const ratingSchema = z.object({
+  rate: z.number().min(0).max(5),
+  count: z.number().nonnegative(),
+});
+
+const tarjetaSchema = z.object({
+  category: z.string(),
+  description: z.string(),
+  id: z.number(),
+  image: z.string().url(),
+  price: z.number().nonnegative(),
+  rating: ratingSchema.optional(),
+  title: z.string(),
+});
 
 type Rating = {
   rate: number;
@@ -18,17 +34,19 @@ type TarjetaProps = {
   title: string;
 };
 
-export const Tarjeta: React.FC<TarjetaProps> = ({
-  category,
-  description,
-  id,
-  image,
-  price,
-  rating = { rate: 0, count: 0 },
-  title,
-}) => {
+export const Tarjeta: React.FC<TarjetaProps> = (props) => {
+  const parseResult = tarjetaSchema.safeParse(props);
+
+  if (!parseResult.success) {
+    console.error('Error en los datos del producto:', parseResult.error.format());
+    return <div className="card-error"> Error: datos del producto inválidos</div>;
+  }
+
+  const { category, description, id, image, price, rating = { rate: 0, count: 0 }, title } =
+    parseResult.data;
   const { addToCart } = useContext(CartContext);
   const enlace = '/producto/' + id;
+  
 
   const renderStars = (rating: Rating) => {
     if (!rating || typeof rating.rate !== 'number') {

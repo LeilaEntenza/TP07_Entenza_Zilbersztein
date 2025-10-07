@@ -7,13 +7,19 @@ type ProductoResumenProps = {
   image: string;
   title: string;
   price: number;
-  quantity?: number; // 👈 le ponemos ? si queremos usar default
+  quantity?: number; 
   id: number;
   totalPrice: number;
 };
 
-
-export const ProductoResumen: React.FC<ProductoResumenProps> = ({  image, title, price, quantity=1, id, totalPrice  }) => {
+export const ProductoResumen: React.FC<ProductoResumenProps> = ({
+  image,
+  title,
+  price,
+  quantity = 1,
+  id,
+  totalPrice,
+}) => {
   const { updateItemQuantity, removeFromCart } = useContext(CartContext);
 
   return (
@@ -24,7 +30,7 @@ export const ProductoResumen: React.FC<ProductoResumenProps> = ({  image, title,
       <td className="product-name">
         <h2 className="h5 text-black">{title}</h2>
       </td>
-      <td>${price}</td>
+      <td>${price.toFixed(2)}</td>
       <td>
         <div
           className="input-group mb-3 d-flex align-items-center quantity-container"
@@ -34,16 +40,16 @@ export const ProductoResumen: React.FC<ProductoResumenProps> = ({  image, title,
             <QuantityInput
               cantidad={quantity}
               id={id}
-              updateItemQuantity={updateItemQuantity}
+              updateItemQuantity={updateItemQuantity} 
             />
           </div>
         </div>
       </td>
-      <td>${totalPrice}</td>
+      <td>${totalPrice.toFixed(2)}</td>
       <td onClick={() => removeFromCart(id)}>
-        <a href="#" className="btn btn-black btn-sm">
+        <button className="btn btn-black btn-sm" type="button">
           X
-        </a>
+        </button>
       </td>
     </tr>
   );

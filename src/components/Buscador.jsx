@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import './Buscador.css';
+import { text } from 'motion/react-client';
 
 export const Buscador = () => {
     const navigate = useNavigate()
