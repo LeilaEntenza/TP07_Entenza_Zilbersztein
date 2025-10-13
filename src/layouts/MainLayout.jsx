@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, Outlet } from 'react-router'
 import './MainLayout.css';
 import { Buscador } from '../components/Buscador';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { CartWidget } from '../components/CartWidget';
+import CartProvider, { CartContext } from '../context/CartContext';
+
 
 export const MainLayout = () => {
+  const {setCartItems} = useContext(CartContext);
+  useEffect(()=>{
+    const storedCart = JSON.parse(localStorage.getItem("Carrito"));
+    if (storedCart) setCartItems(storedCart) 
+    else setCartItems([]);
+  }, [])
   return (
     <div className="layout">
       <header>
@@ -42,6 +51,7 @@ export const MainLayout = () => {
                 </li>
               </ul>
               <Buscador />
+              <CartWidget/>
             </div>
           </div>
         </nav>

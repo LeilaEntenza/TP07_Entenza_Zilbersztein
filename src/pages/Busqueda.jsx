@@ -38,13 +38,7 @@ export const Busqueda = ({ lista, setLista }) => {
     <div className='resultados'>
       {listaFiltrada.map((producto) => (
         <Tarjeta
-          key={producto.id}
-          id={producto.id}
-          title={producto.title}
-          description={producto.description}
-          image={producto.image}
-          price={producto.price}
-        />
+          key={producto.id} id={producto.id} title={producto.title} description={producto.description} image={producto.image} price={producto.price} rating={producto.rating} category={producto.category}/>
       ))}
     </div>
   ) : (

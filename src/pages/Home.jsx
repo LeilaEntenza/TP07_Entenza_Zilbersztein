@@ -3,6 +3,9 @@ import { Productos } from './Productos'
 import './Home.css'
 import axios from 'axios'
 import { Link, Outlet } from 'react-router'
+import { motion } from "motion/react";
+
+const MotionLink = motion(Link);
 
 export const Home = () => {
   const [producto, setProducto] = useState();
@@ -30,8 +33,15 @@ export const Home = () => {
     <div className="Inicio">
       <h1 className="home-title animate__animated animate__fadeInDown">Productos</h1>
       <p>Buscá lo que necesitas</p>
-      <button type="button" className="btn btn-custom"><Link className='enlace' to="/productos">Catálogo</Link>
-</button>
+      <MotionLink
+        to="/productos"
+        className="btn btn-custom enlace"
+        whileHover={{ scale: 1.1 }}
+      >
+        Catálogo
+      </MotionLink>
+
+
     </div>
     <div className='info3'>
     <div className='informacion'>

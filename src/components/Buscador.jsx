@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import './Buscador.css';
+import { text } from 'motion/react-client';
 
 export const Buscador = () => {
     const navigate = useNavigate()
@@ -18,9 +19,17 @@ export const Buscador = () => {
     }
   return (
     <form className="d-flex" role="search" onSubmit={filtrar}>
-        <input className="form-control me-2" name="busqueda" type="search" placeholder="Búsqueda" aria-label="Search"/>
-        <button className="btn buscar" type="submit">Buscar</button>
-        {error && <span style={{ color: 'red', marginLeft: 8 }}>{error}</span>}
+        <input 
+          className="form-control me-2" 
+          name="busqueda" 
+          type="search" 
+          placeholder="Buscar productos..." 
+          aria-label="Search"
+        />
+        <button className="btn buscar" type="submit">
+          <i className="fas fa-search"></i> Buscar
+        </button>
+        {error && <span className="error-message">{error}</span>}
     </form>
   )
 }
